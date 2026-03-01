@@ -6,7 +6,6 @@ AUTHOR = "Steven Kasapi"
 SITENAME = "Steven Kasapi"
 SITEDESCRIPTION = "Steven Kasapi's place on the web."
 SITEURL = ""  # Leave empty for local dev; set to "https://stevenkasapi.net" for production
-EMAIL = "steven@stevenkasapi.net"
 COPYRIGHT_YEAR = datetime.date.today().year
 
 # --- Intro text shown on the home page -----------------------------
