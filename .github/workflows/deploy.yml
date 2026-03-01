@@ -33,12 +33,11 @@ jobs:
 
       - name: Build site
         run: SITEURL="${{ steps.pages.outputs.base_url }}" PYTHONPATH=. pelican content -s publishconf.py
-        working-directory: pelican
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pelican/output
+          path: output
 
   deploy:
     needs: build

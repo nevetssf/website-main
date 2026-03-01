@@ -4,7 +4,7 @@
 
 set -e
 
-cd "$(dirname "$0")/pelican"
+cd "$(dirname "$0")"
 
 echo "Building site..."
 SITEURL="https://stevenkasapi.net" PYTHONPATH=. .venv/bin/pelican content -s publishconf.py

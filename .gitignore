@@ -1,3 +1,3 @@
-pelican/.venv/
-pelican/output/
-pelican/__pycache__/
+.venv/
+output/
+__pycache__/
