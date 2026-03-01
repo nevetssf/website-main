@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} &ndash; {{ SITENAME }}{% endblock %}
+{% block description %}{{ article.summary | striptags }}{% endblock %}
+
+{% block content %}
+<article class="article">
+  <header class="article-header">
+    <h1>{{ article.title }}</h1>
+    <p class="article-meta">
+      <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+      {% if article.category %}&mdash; {{ article.category }}{% endif %}
+    </p>
+  </header>
+  <div class="article-content">
+    {{ article.content }}
+  </div>
+</article>
+{% endblock %}

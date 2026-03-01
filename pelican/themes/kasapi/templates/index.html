@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<section class="home-intro">
+  {{ SITEINTRO | safe }}
+</section>
+
+<nav class="home-nav">
+  {% for title, url in MENUITEMS %}
+  <a href="{{ url }}" class="home-nav-item">{{ title }}</a>
+  {% endfor %}
+  {% for p in pages %}
+  <a href="{{ SITEURL }}/{{ p.url }}" class="home-nav-item">{{ p.title }}</a>
+  {% endfor %}
+</nav>
+{% endblock %}
