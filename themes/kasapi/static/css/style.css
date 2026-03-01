@@ -77,10 +77,9 @@ body {
 
 .site-header .container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
 }
 
 .site-title {
@@ -481,15 +480,6 @@ body {
 @media (max-width: 600px) {
   html {
     font-size: 16px;
-  }
-
-  .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .site-nav {
-    gap: var(--space-sm);
   }
 
   .site-main {

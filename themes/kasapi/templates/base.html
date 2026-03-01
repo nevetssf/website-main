@@ -17,13 +17,16 @@
       <img src="{{ SITEURL }}/images/{% if page and page.banner %}{{ page.banner }}{% else %}banner.jpg{% endif %}" alt="{{ SITENAME }}" />
     </div>
     <div class="container">
-      <a href="{{ SITEURL }}/" class="site-title">{{ SITENAME }}</a>
       <nav class="site-nav">
-        <a href="{{ SITEURL }}/blog/">Public Journal</a>
-        {% for p in pages %}
+        {% for p in pages %}{% if p.slug == 'projects' %}
         <a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a>
-        {% endfor %}
+        {% endif %}{% endfor %}
+        <a href="{{ SITEURL }}/blog/">Public Journal</a>
+        {% for p in pages %}{% if p.slug != 'contact' and p.slug != 'projects' %}
+        <a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a>
+        {% endif %}{% endfor %}
       </nav>
+      <a href="{{ SITEURL }}/" class="site-title">{{ SITENAME }}</a>
     </div>
   </header>
 
@@ -35,7 +38,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; {{ COPYRIGHT_YEAR }} {{ AUTHOR }}</p>
+      <p>&copy; {{ COPYRIGHT_YEAR }} {{ AUTHOR }} &mdash; {% for p in pages %}{% if p.slug == 'contact' %}<a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>{% endif %}{% endfor %}</p>
     </div>
   </footer>
 
