@@ -23,8 +23,11 @@ pelican content
 # Serve locally with auto-reload
 pelican --listen
 
-# Production build (sets SITEURL, enables feeds, deletes output dir first)
-pelican content -s publishconf.py
+# Production build — SITEURL defaults to stevenkasapi.net if not set
+PYTHONPATH=. pelican content -s publishconf.py
+
+# Production build targeting a different host
+SITEURL="https://other-host.com" PYTHONPATH=. pelican content -s publishconf.py
 ```
 
 ## Architecture
@@ -65,4 +68,4 @@ Tag, category, author, and per-author archive pages are disabled (`*_SAVE_AS = "
 
 - `pelicanconf.py` is the single source of truth; `publishconf.py` only overrides what differs in production.
 - `SITEINTRO` in `pelicanconf.py` accepts HTML and controls the homepage blurb.
-- `MENUITEMS` adds external links (e.g. the WordPress blog) to the nav alongside auto-generated page links.
+- The site must remain portable across hosts. `SITEURL` in `publishconf.py` reads from the `SITEURL` environment variable (falling back to `stevenkasapi.net`). Never hardcode a hostname in templates or config.

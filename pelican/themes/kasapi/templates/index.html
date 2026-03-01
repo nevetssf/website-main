@@ -1,18 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }}{% endblock %}
+{% block title %}Public Journal &mdash; {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<section class="home-intro">
-  {{ SITEINTRO | safe }}
-</section>
+<div class="blog-header">
+  <h1>Public Journal</h1>
+  <a href="{{ SITEURL }}/archives/" class="blog-toc-link">All posts &rarr;</a>
+</div>
+<section class="blog-index">
+  {% for article in articles_page.object_list %}
+  <article class="blog-summary">
+    <h2 class="blog-summary-title">
+      <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+    </h2>
+    <time class="blog-summary-date" datetime="{{ article.date.isoformat() }}">
+      {{ article.date.strftime('%B %-d, %Y') }}
+    </time>
+    <div class="blog-summary-excerpt">
+      {{ article.summary }}
+    </div>
+  </article>
+  {% endfor %}
 
-<nav class="home-nav">
-  {% for title, url in MENUITEMS %}
-  <a href="{{ url }}" class="home-nav-item">{{ title }}</a>
-  {% endfor %}
-  {% for p in pages %}
-  <a href="{{ SITEURL }}/{{ p.url }}" class="home-nav-item">{{ p.title }}</a>
-  {% endfor %}
-</nav>
+  {% if articles_page.has_other_pages() %}
+  <nav class="pagination">
+    {% if articles_page.has_previous() %}
+    <a href="{{ SITEURL }}/{{ prev_articles_url }}">&larr; Newer</a>
+    {% endif %}
+    {% if articles_page.has_next() %}
+    <a href="{{ SITEURL }}/{{ next_articles_url }}">Older &rarr;</a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>
 {% endblock %}

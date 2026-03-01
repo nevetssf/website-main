@@ -19,9 +19,7 @@
     <div class="container">
       <a href="{{ SITEURL }}/" class="site-title">{{ SITENAME }}</a>
       <nav class="site-nav">
-        {% for title, url in MENUITEMS %}
-        <a href="{{ url }}"{% if request and request.path == url %} class="active"{% endif %}>{{ title }}</a>
-        {% endfor %}
+        <a href="{{ SITEURL }}/blog/">Public Journal</a>
         {% for p in pages %}
         <a href="{{ SITEURL }}/{{ p.url }}"{% if p == page %} class="active"{% endif %}>{{ p.title }}</a>
         {% endfor %}

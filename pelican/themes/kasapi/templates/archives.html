@@ -1,15 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Archives &ndash; {{ SITENAME }}{% endblock %}
+{% block title %}All Posts &ndash; {{ SITENAME }}{% endblock %}
 
 {% block content %}
-<h1>Archives</h1>
-<ul class="archive-list">
-{% for article in articles %}
-  <li class="archive-item">
-    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-    <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
-  </li>
+<h1>All Posts</h1>
+{% for year, year_articles in articles|groupby('date.year')|reverse %}
+<section class="archive-year">
+  <h2 class="archive-year-heading">{{ year }}</h2>
+  <ul class="archive-list">
+  {% for article in year_articles %}
+    <li class="archive-item">
+      <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%b %-d') }}</time>
+      <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</section>
 {% endfor %}
-</ul>
 {% endblock %}

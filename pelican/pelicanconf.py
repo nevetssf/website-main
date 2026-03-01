@@ -21,11 +21,8 @@ If you don't, it'll be a thin read — but you're welcome to look.</p>
 # --- Navigation ----------------------------------------------------
 # Items that appear in the nav and on the home page, in addition to
 # the auto-generated pages (Photography, Professional, Contact).
-# "Public Journal" links to the WordPress blog.
 
-MENUITEMS = [
-    ("Public Journal", "https://stevenkasapi.net/blog/"),
-]
+MENUITEMS = []
 
 # --- Paths ---------------------------------------------------------
 
@@ -42,7 +39,11 @@ PAGE_URL = "{slug}/"
 PAGE_SAVE_AS = "{slug}/index.html"
 ARTICLE_URL = "posts/{slug}/"
 ARTICLE_SAVE_AS = "posts/{slug}/index.html"
-INDEX_SAVE_AS = "index.html"
+INDEX_URL = "blog/"
+INDEX_SAVE_AS = "blog/index.html"
+
+# Render the home page from a dedicated template
+TEMPLATE_PAGES = {"home.html": "index.html"}
 
 # --- Theme ---------------------------------------------------------
 

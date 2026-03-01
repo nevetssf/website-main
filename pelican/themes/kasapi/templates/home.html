@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }}{% endblock %}
+
+{% block content %}
+<section class="home-intro">
+  {{ SITEINTRO | safe }}
+</section>
+
+<nav class="home-nav">
+  <a href="{{ SITEURL }}/blog/" class="home-nav-item">Public Journal</a>
+  {% for p in pages %}
+  <a href="{{ SITEURL }}/{{ p.url }}" class="home-nav-item">{{ p.title }}</a>
+  {% endfor %}
+</nav>
+{% endblock %}

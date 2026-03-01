@@ -4,6 +4,7 @@
 {% block description %}{{ article.summary | striptags }}{% endblock %}
 
 {% block content %}
+<a href="{{ SITEURL }}/archives/" class="blog-toc-link">All posts &rarr;</a>
 <article class="article">
   <header class="article-header">
     <h1>{{ article.title }}</h1>
