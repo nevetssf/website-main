@@ -60,6 +60,8 @@ AUTHOR_FEED_RSS = None
 
 # --- Misc ----------------------------------------------------------
 
+TYPOGRIFY = True
+
 TIMEZONE = "America/New_York"
 DEFAULT_LANG = "en"
 DEFAULT_PAGINATION = 10

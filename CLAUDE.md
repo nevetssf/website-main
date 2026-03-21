@@ -39,7 +39,7 @@ SITEURL="https://other-host.com" PYTHONPATH=. pelican content -s publishconf.py
 pelicanconf.py      # Dev config (SITEURL="", feeds disabled, RELATIVE_URLS=True)
 publishconf.py      # Production overrides (imports pelicanconf.py, sets live URL)
 content/
-  pages/            # Static pages: photography.md, professional.md, contact.md
+  pages/            # Static pages: projects.md, photography.md, professional.md, contact.md
   posts/            # Blog articles, organised as {year}/{YYYY-mm-dd-slug}.md
   images/           # banner.jpg, photography_banner.jpg, professional_banner.jpg
   extra/            # Files copied verbatim to output root (e.g. CNAME, robots.txt)
@@ -55,9 +55,20 @@ deploy.sh           # FTP deploy script for stevenkasapi.net
 
 The custom `kasapi` theme is a minimal, content-first design. Key design tokens are CSS variables defined at `:root` in `style.css` (colors, font stack, `--measure` line length, spacing scale). All templates extend `base.html`.
 
-- Homepage uses `TEMPLATE_PAGES` to render `home.html` → `index.html`
-- Blog index is at `/blog/` via `INDEX_SAVE_AS`
+- Homepage uses `TEMPLATE_PAGES` to render `home.html` → `index.html` (no `page` context variable available in this template)
+- Blog is labelled "Public Journal" in templates; index is at `/blog/` via `INDEX_SAVE_AS`
 - Blog link is hardcoded in `base.html` and `home.html` using `{{ SITEURL }}/blog/` to stay relative with `RELATIVE_URLS = True`
+
+### Nav ordering
+
+Nav and home page links follow a fixed order defined in both `base.html` and `home.html` by filtering on page slugs:
+
+1. `projects` (explicit first position)
+2. "Public Journal" (hardcoded blog link)
+3. All other pages except `contact` and `projects`
+4. `contact` appears only in the footer, not in the nav
+
+To add a new page to a specific nav position, add a slug condition to the template loops.
 
 ## Content
 
