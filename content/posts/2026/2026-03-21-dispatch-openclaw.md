@@ -11,7 +11,7 @@ I've never seen such a confusing word salad of services in my life.
 
 So I stopped.
 
-A few days ago, I heard about Claude Dispatch and decided to give it a try. If OpenClaw is an adolescent personal agentic system, Dispatch seems like an early-twenties agent who has a job and owns a car. It's not as powerful or energetic, but it's also less likely to sell my identity to the highest bidder. From what I've been able to tell so far, Dispatch is a chat-based interface to an instance of Claude Cowork running a computer — in my case, my main Mac.
+Yesterday I heard about Claude Dispatch and am checking it out. If OpenClaw is an adolescent personal agentic system, Dispatch seems like an early-twenties agent who has a job and owns a car. It's not as powerful or energetic, but it's also less likely to sell my identity to the highest bidder. From what I've been able to tell so far, Dispatch is a chat-based interface to an instance of Claude Cowork running a computer — in my case, my main Mac.
 
 I haven't quite given Dispatch access to my whole file system but it has more access than I'd ever have given OpenClaw. I'm sure OpenClaw can do a lot more, but until I can think of a compelling application that would drive me to behave so recklessly, I'll stick with Dispatch and hope its features evolve.
 
